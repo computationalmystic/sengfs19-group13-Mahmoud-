@@ -12,9 +12,7 @@ matrix:
     language: python
     python: '3.6'
     script:
-    - augur run --no-enable-housekeeper > /dev/null 2>&1 &
-    - sleep 15
-    - python -m pytest -ra augur/metrics/**/test_**_routes.py
+    - augur run --no-enable-housekeeper
 
 notifications:
   slack: augurlabs:WdpwniZ9L5RqJyMfIk1n8DOU
