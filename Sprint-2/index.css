@@ -1,0 +1,19 @@
+body{
+    background-color: #ecffa8;
+}
+
+#committers{
+/*
+    border: solid 2px;
+    border-radius: 15px;
+*/
+    padding: 10px;
+}
+
+button {
+    color: black;
+    background-color: #ffa8ee;
+    border-radius: 20px;
+    border: solid 1.5px black;
+    padding: 5px;
+}
