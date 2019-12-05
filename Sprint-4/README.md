@@ -11,48 +11,74 @@ API: http://augur.osshealth.io/api_docs/
 
 Webite: http://18.218.250.185/
 
-# Deployment
 
+# Deployment
 To deploy this application, any server running apache would work however I used AWS
 
+
 **Step 1**: Create an AWS instance in EC2 (Amazon Linux AMI (HVM), SSD Volume Type)
+
 **Step 2**: select t2.micro with 1GB Memory
+
 **Step 3**: all the default settings are good
+
 **Step 4**: add storage, a recommended size is 8.00 GB
+
 **Step 5**: Add Tages, no changes are needed
+
 **Step 6**: Configuration Security Group: make sure SSH is added, you will need to add HTTP Port: 80 and HTTPS Port: 443
+
 **Step 7**: Review everything before launching an instance.
 
+
 you will need to login to the server and configure everything
+
 after logging in you need to run some commands
 -: sudo yum update -y
+
 -: sudo yum install -y httpd24 php70 mysql56-server php70-mysqlnd
+
 -: sudo service httpd start
 
+
 now you need to change file permissions so you can upload the code
+
 navigate to ls "/var/www" using command -: ls -l /var/www
+
 after navigating to the directory, run this command -: sudo chmod 2775 /var/www
 
+
 after that use the preferred method to upload the code to "/var/www/html/" directory.
+
 
 [https://medium.com/@oreillyalan88/lamp-linux-apache-mysql-php-web-server-on-an-amazon-ec2-linux-instance-e37eb023e996](https://medium.com/@oreillyalan88/lamp-linux-apache-mysql-php-web-server-on-an-amazon-ec2-linux-instance-e37eb023e996)
 
 
 # Files
 - **index.html** (added): the main landing page and contains the code for Top Committer web page
+
 - **index.css** (added): the CSS styling sheet to make the web page look good
+
 - **issue.html** (added): the second web page which displays the Average Issue Response Time
+
 - **summary.html** (added): the third web page which displays the Aggregate Summary per Group
+
 - **fork.html** (added): the fourth web page which displays the number of forks a repo has
+
 - **bar.css** (added): a CSS styling sheet to make sure that all the bar on the web page are uniform
+
 
 # Dependencies
 Database used for the API calls: http://augur.osshealth.io/api_docs/
+
 CanvasJS used for graphs: https://canvasjs.com/assets/script/canvasjs.min.js
+
 
 # Navigating the website
 The top bar will let you navigate the different web pages
+
 The blue buttons are linked to the different repository groups
+
 
 # Top Committers by percentage:
 Will use a pie chart to show the distribution of commits for groups
