@@ -13,48 +13,10 @@
     <ul>
         <li><a href="index.html">Top Committers</a></li>
         <li><a href="issue.html">Average Issue Time</a></li>
-        <li><a href="summary.html">Aggreget Summary</a></li>
-        <li><a href="">Fork Count</a></li>
+        <li><a href="summary.html">Aggregate Summary</a></li>
+        <li><a href="" class="active">Fork Count</a></li>
     </ul>
 
-
-
-<!--
-    <div id="committers">
-<p>1. Get Repo Group Top 6 Committers<br></p>
-<button type="button" onclick="loadRepoGroupTopCommitters(25152)">MHS</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(20)">Rails</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(21)">Comcast</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(22)">GraphQL</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(23)">Netflix</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(24)">Apache</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(25151)">Zephyr-RTOS</button>
-<button type="button" onclick="loadRepoGroupTopCommitters(25150)">CHAOSS Risk Working Group</button>
-    </div>
-
-
-<p>2. Get Average Issue Resolution Time<br></p>
-<button type="button" onclick="loadRepoGroupPull(25152)">MHS</button>
-<button type="button" onclick="loadRepoGroupPull(20)">Rails</button>
-<button type="button" onclick="loadRepoGroupPull(21)">Comcast</button>
-<button type="button" onclick="loadRepoGroupPull(22)">GraphQL</button>
-<button type="button" onclick="loadRepoGroupPull(23)">Netflix</button>
-<button type="button" onclick="loadRepoGroupPull(24)">Apache</button>
-<button type="button" onclick="loadRepoGroupPull(25151)">Zephyr-RTOS</button>
-<button type="button" onclick="loadRepoGroupPull(25150)">CHAOSS Risk Working Group</button>
-
-
-<p>3. Aggreget Summary<br></p>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(25152);">MHS</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(20);">Rails</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(21);">Comcast</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(22);">GraphQL</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(23);">Netflix</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(24);">Apache</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(25151);">Zephyr-RTOS</button>
-<button type="button" onclick="emptyList(); loadRepoGroupForkCount(25150);">CHAOSS Risk Working Group</button>
-<br>
--->
 
 
 <p>4. Select Fork Count<br></p>
@@ -69,7 +31,7 @@
 <br>
 <select id="mySelect" size="10">
 </select>
-<button type="button" onclick="displayForks()">Select</button>
+<button type="button" onclick="displayForks()" >Select</button>
 <br>
 
 
@@ -249,6 +211,8 @@ function getRepoGroupForkCount(txt){
     forkObj = obj;
     var out = '';
 
+    emptyList();
+
     for (i = 0; i < obj.length; i++){
         if (i <  obj.length) {
 //            out += obj[i].repo_id + "         " + obj[i].repo_name + "<br>";
@@ -263,6 +227,8 @@ function addSelect(txt) {
     var x = document.getElementById("mySelect");
     var option = document.createElement("option");
     option.text = txt;
+//    option.addEventListener("ondblclick",displayForks);
+    option.ondblclick = function(){displayForks()};
     x.add(option);
 }
 
@@ -286,7 +252,7 @@ function displayForks(){
           theme: "light1",
           animationEnabled: true,
           title:{
-              text: "Pull Request Acceptance Rate"
+              text: "Repo Fork Count"
           },
           data: [
               {
